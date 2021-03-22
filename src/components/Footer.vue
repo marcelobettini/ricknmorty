@@ -1,6 +1,5 @@
 <template>
-  <b-navbar
-    class="footer d-flex justify-content-center flex-column"
+  <div class="footer d-flex justify-content-center flex-column"
     variant="dark"
   >
     <div class="mb-2">
@@ -19,7 +18,7 @@
         alt=""
       />
     </div>
-  </b-navbar>
+  </div>
 </template>
 
 <script>
@@ -31,8 +30,10 @@ p {
     font-size: .9em;
 }
 .footer {
-  position: absolute;
-  bottom: 0px;
+  position: fixed;
+  bottom: 0;
+  background-color: black;
+  height: 100px;
   width: 100vw;
 }
 .sanchez-footer {
