@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Navbar></Navbar>
-    <SpinnerPortal></SpinnerPortal>
+    
     <Footer></Footer>
     <router-view></router-view>
   </div>
@@ -10,9 +10,9 @@
 <script>
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import SpinnerPortal from "@/components/SpinnerPortal";
+
 export default {
-  components: { Navbar, Footer, SpinnerPortal },
+  components: { Navbar, Footer },
 };
 </script>
 

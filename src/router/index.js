@@ -1,13 +1,14 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Characters from'@/views/Characters.vue'
-
+import SpinnerPortal from '../components/SpinnerPortal'
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'Home'    
+    name: 'Home',
+    component: SpinnerPortal
   },
   {
     path: '/about',
