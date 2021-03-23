@@ -1,22 +1,21 @@
 <template>
   <div>
-    <b-card no-body class="overflow-hidden" style="max-width: 540px;">
-      <b-row no-gutters>
-        <b-col md="6">
-          <b-card-img
+    <b-card class="overflow-hidden" style="width: 400px;">
+     
+          <b-card-img-lazy
             :src="character.image"
             alt="Image"
-            class="rounded-0"
-          ></b-card-img>
-        </b-col>
-        <b-col md="6">
-          <b-card-body title="Horizontal Card">
-            <b-card-text>
-              {{character.name}}
+            class="rounded"
+          ></b-card-img-lazy>
+     
+          <b-card-body :title="character.name">
+            <b-card-text>              
+              <p>Species: {{character.species}}</p>
+              <p>Gender: {{character.gender}}</p>
+              <p>Status: {{character.status}}</p>              
             </b-card-text>
           </b-card-body>
-        </b-col>
-      </b-row>
+     
     </b-card>
   </div>
 </template>

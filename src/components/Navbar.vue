@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <b-navbar class="sticky-top" toggleable="lg" type="dark" variant="dark">
+  
+    <b-navbar toggleable="lg" type="dark" variant="dark">
       <b-navbar-brand class="nav-link active" to="/"
         ><img
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Rick_and_Morty.svg/256px-Rick_and_Morty.svg.png"
@@ -27,7 +27,6 @@
               v-for="item in dropdown"
               :key="item"
               :active="item === activeItem"
-              
               @click="selectItemDropdown(item)"
               >{{ item }}</b-dropdown-item
             >
@@ -44,9 +43,6 @@
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
-  
-  </div>
-  
 </template>
 
 <script>

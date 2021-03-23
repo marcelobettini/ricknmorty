@@ -1,5 +1,5 @@
 <template>
-  <div class="container">  
+  <div class="container d-flex flex-wrap justify-content-around mx-4 my-4">  
     <CharacterCard v-for="character in characters" :key="character.id" :character="character"></CharacterCard>    
     
   </div>
