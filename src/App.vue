@@ -24,6 +24,16 @@ export default {
   box-sizing: border-box;
   font-family: Noto Sans, Helvetica, Trebuchet MS, Gill Sans, sans-serif;
 }
+ 
+/* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar {
+    display: none;
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+body {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
 #app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

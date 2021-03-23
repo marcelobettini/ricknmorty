@@ -1,7 +1,7 @@
 <template>
 
     <div
-      class="footer d-flex justify-content-center flex-column"
+      class="footer d-flex justify-content-center flex-column mt-4"
       variant="dark"
     >
       <div class="mb-2">

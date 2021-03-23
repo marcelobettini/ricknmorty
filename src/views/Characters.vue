@@ -1,23 +1,25 @@
 <template>
-  <div class="container d-flex flex-wrap justify-content-around mx-4 my-4">  
-    <CharacterCard v-for="character in characters" :key="character.id" :character="character"></CharacterCard>    
-    
+  <div class="container-fluid d-flex flex-wrap justify-content-around">
+    <CharacterCard
+      v-for="character in data"
+      :key="character.id"
+      :character="character"
+    ></CharacterCard>
   </div>
 </template>
 <script>
-import CharacterCard from '../components/CharacterCard'
-import {mapState, mapActions} from 'vuex'
-export default { 
-  components: { CharacterCard},
-  computed:{
-    ...mapState(['characters', 'pagination', 'page'])
+import CharacterCard from "../components/CharacterCard";
+import { mapState, mapActions } from "vuex";
+export default {
+  components: { CharacterCard },
+  computed: {
+    ...mapState(["data", "pagination", "page"]),
   },
   methods: {
-    ...mapActions(['getCharacters'])
+    ...mapActions(["getData"]),
   },
-  mounted(){
-
-    this.getCharacters(`character?page=${this.page}`)
-  }
+  mounted() {
+    this.getData(`character?page=${this.page}`);
+  },
 };
 </script>

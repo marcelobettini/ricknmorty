@@ -1,21 +1,20 @@
 <template>
   <div>
-    <b-card class="overflow-hidden" style="width: 400px;">
-     
-          <b-card-img-lazy
-            :src="character.image"
-            alt="Image"
-            class="rounded"
-          ></b-card-img-lazy>
-     
-          <b-card-body :title="character.name">
-            <b-card-text>              
-              <p>Species: {{character.species}}</p>
-              <p>Gender: {{character.gender}}</p>
-              <p>Status: {{character.status}}</p>              
-            </b-card-text>
-          </b-card-body>
-     
+    <b-card class="b-card overflow-hidden my-3" style="width: 360px; height: 530px;">
+      <b-card-img-lazy
+        :src="character.image"
+        :alt="character.image"
+      ></b-card-img-lazy>
+
+      <b-card-body class="text-warning" :title="character.name">
+        <b-card-text class="text-white">
+          <ul>
+            <li>Species: {{ character.species }}</li>
+            <li>Gender: {{ character.gender }}</li>
+            <li>Status: {{ character.status }}</li>
+          </ul>
+        </b-card-text>
+      </b-card-body>
     </b-card>
   </div>
 </template>
@@ -35,4 +34,11 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style>
+.b-card{
+  background-color:rgb(48, 47, 49);
+}
+ul {
+list-style-type: none;
+}
+</style>
