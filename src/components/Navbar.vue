@@ -84,7 +84,7 @@ export default {
       }
       this.getData(this.payload);
       switch (compass) {
-        case "c":
+        case "c":          
           this.$router.push({ name: "Characters" });
           break;
         case "e":
