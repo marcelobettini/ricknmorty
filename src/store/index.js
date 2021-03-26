@@ -21,6 +21,9 @@ export default new Vuex.Store({
     pageDown(state) {
       state.page -= 1;
     },
+    resetPage(state) {
+      state.page = 1;
+    }
   },
   actions: {
     getData: async function({ commit }, payload) {

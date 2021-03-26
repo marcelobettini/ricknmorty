@@ -2,8 +2,8 @@
   <div id="app">
     
     <Navbar class="sticky-top"></Navbar>
-    <router-view></router-view>
-    <Footer class="sticky-bottom"></Footer>
+    <router-view id="rv"></router-view>
+    <Footer></Footer>
     
   </div>
 </template>
@@ -32,13 +32,13 @@ body::-webkit-scrollbar {
 /* Hide scrollbar for IE, Edge and Firefox */
 body {
   -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  scrollbar-width: none;  /* Firefox */  
 }
-#app {
+#app {  
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #2c3e50;    
 }
 
 #nav {
@@ -57,5 +57,8 @@ body {
 .gif-container {
   min-height: 70vh;
   max-height: 80vh;
+}
+#rv {
+  min-height: 100vh;
 }
 </style>

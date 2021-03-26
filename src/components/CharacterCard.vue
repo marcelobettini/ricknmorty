@@ -1,6 +1,7 @@
 <template>
   <div>
-    <b-card class="b-card overflow-hidden my-3" style="width: 360px; height: 530px;">
+    <pre-loader></pre-loader>
+    <b-card class="b-card overflow-hidden my-3" style="width: 360px; height: 550px;">
       <b-card-img-lazy
         :src="character.image"
         :alt="character.image"
@@ -12,6 +13,7 @@
             <li>Species: {{ character.species }}</li>
             <li>Gender: {{ character.gender }}</li>
             <li>Status: {{ character.status }}</li>
+            <li>Location: {{ character.location.name }}</li>
           </ul>
         </b-card-text>
       </b-card-body>
@@ -21,7 +23,9 @@
 
 <script>
 import { mapState } from "vuex";
+import PreLoader from './PreLoader.vue';
 export default {
+  components: { PreLoader },
   props: {
     character: {
       type: Object,

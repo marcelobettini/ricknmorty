@@ -59,7 +59,7 @@
 
 <script>
 import { mapState, mapActions, mapMutations } from "vuex";
-export default {
+export default {  
   computed: {
     ...mapState(["data", "pagination", "page"]),
     prevDisabled() {
