@@ -9,11 +9,15 @@ export default new Vuex.Store({
     pagination: [],
     page: 1,
     baseURL: "https://rickandmortyapi.com/api/",    
+    isLoaded: false
   },
   mutations: {
-    loadCharacters(state, rawData) {
+    loadCharacters(state, rawData) {      
       state.data = rawData.results;
       state.pagination = rawData.info;            
+      setTimeout(() => {
+        state.isLoaded = true      
+      },750)
     },
     pageUp(state) {
       state.page += 1;
@@ -27,6 +31,7 @@ export default new Vuex.Store({
   },
   actions: {
     getData: async function({ commit }, payload) {
+      this.state.isLoaded = !this.state.isLoaded;
       const data = await fetch(`${this.state.baseURL}${payload}`);
       const rawData = await data.json();
       commit("loadCharacters", rawData);      

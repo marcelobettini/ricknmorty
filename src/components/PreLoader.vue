@@ -1,5 +1,5 @@
 <template>
-  <div class="pre-loader d-flex justify-content-center align-items-center">
+  <div class="pre-loader d-flex justify-content-center align-items-center" v-if="!this.$store.state.isLoaded">
     <div class="lds-hourglass"></div>
   </div>
 </template>

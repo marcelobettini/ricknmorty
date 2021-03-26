@@ -67,14 +67,14 @@ export default {
     selectItemDropdown(item) {
       let compass = null;
       this.activeItem = item;
-      this.resetPage()   
+      this.resetPage();
       switch (item) {
         case "Characters":
-          compass = "c";
-          this.payload = `character?page=${this.page}`;
+          compass = "c";          
+          this.payload = `character?page=${this.page}`;          
           break;
         case "Episodes":
-          compass = "e";          
+          compass = "e";
           this.payload = `episode?page=${this.page}`;
           break;
         case "Locations":
@@ -85,20 +85,26 @@ export default {
       }
       this.getData(this.payload);
       switch (compass) {
-        case "c":               
-          this.$router.push({ name: "Characters" });
+        case "c":
+          if (this.$route.path != "/characters") {            
+            this.$router.push({ name: "Characters" });
+          }
           break;
-        case "e":          
-          this.$router.push({ name: "Episodes" });
+        case "e":
+          if (this.$route.path != "/episodes") {
+            this.$router.push({ name: "Episodes" });
+          }
           break;
-        case "l":          
-          this.$router.push({ name: "Locations" });
+        case "l":
+          if (this.$route.path != "/locations") {
+            this.$router.push({ name: "Locations" });
+          }
           break;
         default:
       }
     },
     ...mapActions(["getData"]),
-    ...mapMutations(['resetPage'])
+    ...mapMutations(["resetPage"]),
   },
 };
 </script>
