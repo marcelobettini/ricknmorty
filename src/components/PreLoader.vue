@@ -1,24 +1,12 @@
 <template>
-  <div
-    class="pre-loader d-flex justify-content-center align-items-center"
-    v-if="!isLoaded"
-  >
+  <div class="pre-loader d-flex justify-content-center align-items-center">
     <div class="lds-hourglass"></div>
   </div>
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      isLoaded: false,
-    };
-  },
-  mounted() {
-    setTimeout(() => {
-      this.isLoaded = true;
-    }, 2000);
-  },
+export default {  
+  
 };
 </script>
 
