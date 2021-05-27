@@ -1,7 +1,10 @@
 <template>
   <div>
     <pre-loader></pre-loader>
-    <b-card class="b-card overflow-hidden my-3" style="width: 360px; height: 550px;">
+    <b-card
+      class="b-card overflow-hidden my-3"
+      style="width: 360px; height: 550px;"
+    >
       <b-card-img-lazy
         :src="character.image"
         alt="character image"
@@ -12,8 +15,8 @@
           <ul>
             <li>Species: {{ character.species }}</li>
             <li>Gender: {{ character.gender }}</li>
-            <li>Status: {{ character.status }}</li>            
-            <li>Location: {{character.location.name}}</li>
+            <li>Status: {{ character.status }}</li>
+            <li>Location: {{ character.location.name }}</li>
           </ul>
         </b-card-text>
       </b-card-body>
@@ -22,8 +25,7 @@
 </template>
 
 <script>
-
-import PreLoader from './PreLoader.vue';
+import PreLoader from "./PreLoader.vue";
 export default {
   components: { PreLoader },
   props: {
@@ -36,10 +38,10 @@ export default {
 </script>
 
 <style>
-.b-card{
-  background-color:rgb(48, 47, 49);
+.b-card {
+  background-color: rgb(48, 47, 49);
 }
 ul {
-list-style-type: none;
+  list-style-type: none;
 }
 </style>

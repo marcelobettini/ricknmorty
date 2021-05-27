@@ -1,13 +1,10 @@
 <template>
   <div id="app">
-    
     <Navbar class="sticky-top"></Navbar>
     <transition name="fade" mode="out-in">
-
-    <router-view id="rv"></router-view>
+      <router-view id="rv"></router-view>
     </transition>
     <Footer></Footer>
-    
   </div>
 </template>
 
@@ -27,21 +24,21 @@ export default {
   box-sizing: border-box;
   font-family: Noto Sans, Helvetica, Trebuchet MS, Gill Sans, sans-serif;
 }
- 
+
 /* Hide scrollbar for Chrome, Safari and Opera */
 body::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 /* Hide scrollbar for IE, Edge and Firefox */
 body {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */  
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
-#app {  
+#app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;    
+  color: #2c3e50;
 }
 
 #nav {
@@ -62,13 +59,16 @@ body {
   max-height: 80vh;
 }
 #rv {
-  min-height: 100vh;
+  min-height: 70vh;
+  height: fit-content;
 }
-.fade-enter-active, .fade-leave-active {
+.fade-enter-active,
+.fade-leave-active {
   transition: opacity 0.5s;
   /* animation: ease-in-out; */
 }
-.fade-enter, .fade-leave-to {
-  opacity: 0;  
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>

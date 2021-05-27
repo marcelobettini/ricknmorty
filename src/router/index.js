@@ -1,43 +1,49 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Characters from'@/views/Characters.vue'
-import Episodes from'@/views/Episodes.vue'
-import Locations from'@/views/Locations.vue'
-import SpinnerPortal from '../components/SpinnerPortal'
-Vue.use(VueRouter)
+import Vue from "vue";
+import VueRouter from "vue-router";
+import Characters from "@/views/Characters.vue";
+import Episodes from "@/views/Episodes.vue";
+import Locations from "@/views/Locations.vue";
+import RandomCharacter from "@/views/RandomCharacter.vue";
+import SpinnerPortal from "../components/SpinnerPortal";
+Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/',
-    name: 'Home',
-    component: SpinnerPortal
+    path: "/",
+    name: "Home",
+    component: SpinnerPortal,
   },
   {
-    path: '/about',
-    name: 'About',
-    component: () => import('../views/About.vue') //lazy loading
-  }, 
-  {
-    path: '/characters',
-    name: 'Characters',
-    component: Characters //normal loading
+    path: "/about",
+    name: "About",
+    component: () => import("../views/About.vue"), //lazy loading
   },
   {
-    path: '/locations',
-    name: 'Locations',
-    component: Locations //normal loading
+    path: "/characters",
+    name: "Characters",
+    component: Characters, //normal loading
   },
   {
-    path: '/episodes',
-    name: 'Episodes',
-    component: Episodes //normal loading
-  }
-]
+    path: "/locations",
+    name: "Locations",
+    component: Locations, //normal loading
+  },
+  {
+    path: "/episodes",
+    name: "Episodes",
+    component: Episodes, //normal loading
+  },
+  {
+    path: "/randomcharacter",
+    name: "RandomCharacter",
+    component: RandomCharacter,
+  },
+];
 
 const router = new VueRouter({
-  mode: 'history',
+  mode: "history",
   base: process.env.BASE_URL,
-  routes
-})
+  routes,
+});
 
-export default router
+export default router;

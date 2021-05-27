@@ -1,13 +1,14 @@
 <template>
-  <div class="pre-loader d-flex justify-content-center align-items-center" v-if="!this.$store.state.isLoaded">
+  <div
+    class="pre-loader d-flex justify-content-center align-items-center"
+    v-if="!this.$store.state.isLoaded"
+  >
     <div class="lds-hourglass"></div>
   </div>
 </template>
 
 <script>
-export default {  
-  
-};
+export default {};
 </script>
 
 <style scoped>
@@ -35,7 +36,8 @@ export default {
   margin: 8px;
   box-sizing: border-box;
   border: 32px solid rgb(47, 48, 35);
-  border-color: rgba(5, 165, 5, 0.61) transparent rgba(122, 241, 11, 0.671) transparent;
+  border-color: rgba(5, 165, 5, 0.61) transparent rgba(122, 241, 11, 0.671)
+    transparent;
   animation: lds-hourglass 1.2s infinite;
 }
 @keyframes lds-hourglass {

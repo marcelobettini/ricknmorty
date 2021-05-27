@@ -20,7 +20,7 @@
           <b-form-input size="sm" class="mr-sm-2" placeholder="Search"></b-form-input>
           <b-button size="sm" class="my-2 my-sm-0" type="submit">Search</b-button>
         </b-nav-form> -->
-
+        <b-nav-item @click="showRandom">random-character</b-nav-item>
         <b-nav-item-dropdown text="get" right>
           <b-dropdown-item
             v-for="item in dropdown"
@@ -64,14 +64,21 @@ export default {
     ...mapState(["page", "pagination"]),
   },
   methods: {
+    showRandom() {
+      if (this.$route.path != "/randomcharacter") {
+        this.$router.push({ name: "RandomCharacter" });
+      } else {
+        this.getData(`character?page=${Math.round(Math.random() * 35)}`);
+      }
+    },
     selectItemDropdown(item) {
       let compass = null;
       this.activeItem = item;
       this.resetPage();
       switch (item) {
         case "Characters":
-          compass = "c";          
-          this.payload = `character?page=${this.page}`;          
+          compass = "c";
+          this.payload = `character?page=${this.page}`;
           break;
         case "Episodes":
           compass = "e";
@@ -86,7 +93,7 @@ export default {
       this.getData(this.payload);
       switch (compass) {
         case "c":
-          if (this.$route.path != "/characters") {            
+          if (this.$route.path != "/characters") {
             this.$router.push({ name: "Characters" });
           }
           break;
