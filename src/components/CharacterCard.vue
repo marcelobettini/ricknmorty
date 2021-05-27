@@ -3,7 +3,7 @@
     <pre-loader></pre-loader>
     <b-card
       class="b-card overflow-hidden my-3"
-      style="width: 360px; height: 550px;"
+      style="width: 320px; height: 500px"
     >
       <b-card-img-lazy
         :src="character.image"

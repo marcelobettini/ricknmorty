@@ -1,5 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import $ from 'jquery'
 
 Vue.use(Vuex);
 
@@ -21,12 +22,15 @@ export default new Vuex.Store({
     },
     pageUp(state) {
       state.page += 1;
+      $('html,body').scrollTop(0);
     },
     pageDown(state) {
       state.page -= 1;
+      $('html,body').scrollTop(0);
     },
     resetPage(state) {
       state.page = 1;
+      
     }
   },
   actions: {

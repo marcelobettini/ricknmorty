@@ -13,7 +13,11 @@
         </thead>
 
         <tbody>
-          <tr v-for="location in data" :key="location.id">
+          <tr
+            v-for="location in data"
+            :key="location.id"
+            @click="rowclick(location.residents)"
+          >
             <td>{{ location.name }}</td>
             <td>{{ location.type }}</td>
             <td>{{ location.dimension }}</td>
@@ -60,6 +64,11 @@
 <script>
 import { mapState, mapActions, mapMutations } from "vuex";
 export default {
+  data() {
+    return {
+      residents: []
+    }
+  },
   computed: {
     ...mapState(["data", "pagination", "page"]),
     prevDisabled() {
@@ -70,6 +79,15 @@ export default {
     },
   },
   methods: {
+    rowclick(data) {
+      this.residents = []
+      data.forEach(el => {
+        fetch(el)
+        .then(res => res.json())
+        .then(char => this.residents.push(char))
+      })
+      console.log(this.residents)
+    },
     ...mapActions(["getData"]),
     ...mapMutations(["pageUp", "pageDown"]),
     nextPage() {
