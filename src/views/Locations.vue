@@ -64,11 +64,6 @@
 <script>
 import { mapState, mapActions, mapMutations } from "vuex";
 export default {
-  data() {
-    return {
-      residents: []
-    }
-  },
   computed: {
     ...mapState(["data", "pagination", "page"]),
     prevDisabled() {
@@ -80,32 +75,34 @@ export default {
   },
   methods: {
     rowclick(data) {
-      this.residents = []
-      data.forEach(el => {
+      let characters = [];
+      console.log(data);
+      data.forEach((el) => {
         fetch(el)
-        .then(res => res.json())
-        .then(char => this.residents.push(char))
-      })
-      console.log(this.residents)
+          .then((res) => res.json())
+          .then((char) => {
+            characters.push(char.name);
+            characters.forEach((el) => {
+              console.log(el);
+            });
+          });
+        // .catch((err) => alert(err));
+      });
     },
-    ...mapActions(["getData"]),
-    ...mapMutations(["pageUp", "pageDown"]),
-    nextPage() {
-      if (this.page < this.pagination.pages) {
-        this.pageUp();
-        this.getData(`location?page=${this.page}`);
-      }
-    },
-    prevPage() {
-      if (this.page > 1) {
-        this.pageDown();
-        this.getData(`location?page=${this.page}`);
-      }
-    },
+  },
+  ...mapActions(["getData"]),
+  ...mapMutations(["pageUp", "pageDown"]),
+  nextPage() {
+    if (this.page < this.pagination.pages) {
+      this.pageUp();
+      this.getData(`location?page=${this.page}`);
+    }
+  },
+  prevPage() {
+    if (this.page > 1) {
+      this.pageDown();
+      this.getData(`location?page=${this.page}`);
+    }
   },
 };
 </script>
-
-},
-
-<style scoped></style>
