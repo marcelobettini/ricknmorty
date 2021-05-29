@@ -16,7 +16,7 @@
           <tr
             v-for="location in data"
             :key="location.id"
-            @click="rowclick(location.residents)"
+            @click="residentsList(location.residents)"
           >
             <td>{{ location.name }}</td>
             <td>{{ location.type }}</td>
@@ -58,6 +58,11 @@
         </ul>
       </nav>
     </div>
+
+    <!-- modal -->
+    <b-modal ref="residentsModal" title="Residents">
+      <span v-for="res in residents" :key="res.id"> {{ res.name }} | </span>
+    </b-modal>
   </div>
 </template>
 
@@ -66,8 +71,8 @@ import { mapState, mapActions, mapMutations } from "vuex";
 export default {
   data() {
     return {
-      residents: []
-    }
+      residents: [],
+    };
   },
   computed: {
     ...mapState(["data", "pagination", "page"]),
@@ -79,14 +84,19 @@ export default {
     },
   },
   methods: {
-    rowclick(data) {
-      this.residents = []
-      data.forEach(el => {
+    showModal() {
+      this.$refs["residentsModal"].show();
+    },
+    residentsList(data) {
+      this.residents = [];
+      data.forEach((el) => {
         fetch(el)
-        .then(res => res.json())
-        .then(char => this.residents.push(char))
-      })
-      console.log(this.residents)
+          .then((res) => res.json())
+          .then((char) => {
+            this.residents.push(char);
+          });
+      });
+      this.showModal();
     },
     ...mapActions(["getData"]),
     ...mapMutations(["pageUp", "pageDown"]),
@@ -105,7 +115,4 @@ export default {
   },
 };
 </script>
-
-},
-
 <style scoped></style>
