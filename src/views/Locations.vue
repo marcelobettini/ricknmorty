@@ -60,8 +60,16 @@
     </div>
 
     <!-- modal -->
-    <b-modal ref="residentsModal" title="Residents">
-      <span v-for="res in residents" :key="res.id"> {{ res.name }} | </span>
+
+    <b-modal ref="residentsModal" title="Who lives here...">
+      <span v-if="emptyLocation">Sorry, nobody lives here</span>
+      <template v-else>
+        <ul>
+          <li class="charList" v-for="(res, index) in residents" :key="index">
+            {{ res.name }}
+          </li>
+        </ul>
+      </template>
     </b-modal>
   </div>
 </template>
@@ -72,6 +80,7 @@ export default {
   data() {
     return {
       residents: [],
+      emptyLocation: false,
     };
   },
   computed: {
@@ -88,15 +97,21 @@ export default {
       this.$refs["residentsModal"].show();
     },
     residentsList(data) {
-      this.residents = [];
-      data.forEach((el) => {
-        fetch(el)
-          .then((res) => res.json())
-          .then((char) => {
-            this.residents.push(char);
-          });
-      });
-      this.showModal();
+      this.emptyLocation = false;
+      if (Object.keys(data).length != 0) {
+        this.residents = [];
+        data.forEach((el) => {
+          fetch(el)
+            .then((res) => res.json())
+            .then((char) => {
+              this.residents.push(char);
+            });
+          this.showModal();
+        });
+      } else {
+        this.emptyLocation = true;
+        this.showModal();
+      }
     },
     ...mapActions(["getData"]),
     ...mapMutations(["pageUp", "pageDown"]),
@@ -129,4 +144,17 @@ export default {
   },
 };
 </script>
-<style scoped></style>
+<style scoped>
+.charList {
+  display: inline;
+  font-family: Arial, Helvetica, sans-serif;
+  font-variant: small-caps;
+}
+.charList::after {
+  content: "-";
+  padding: 0.9em;
+}
+table > tbody > tr > td {
+  cursor: pointer;
+}
+</style>

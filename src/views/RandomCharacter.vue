@@ -8,7 +8,6 @@
 <script>
 import CharacterCard from "../components/CharacterCard";
 import { mapState, mapActions } from "vuex";
-import $ from 'jquery'
 export default {
   components: { CharacterCard },
   computed: {
@@ -19,7 +18,6 @@ export default {
   },
   mounted() {
     this.getData(`character?page=${Math.round(Math.random() * 35)}`);
-    $('html,body').scrollTop(0);
   },
 };
 </script>
