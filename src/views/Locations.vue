@@ -65,7 +65,9 @@
       <span v-if="emptyLocation">Sorry, nobody lives here</span>
       <template v-else>
         <ul>
-          <li v-for="(res, index) in residents" :key="index">{{ res.name }}</li>
+          <li class="charList" v-for="(res, index) in residents" :key="index">
+            {{ res.name }}
+          </li>
         </ul>
       </template>
     </b-modal>
@@ -129,12 +131,12 @@ export default {
 };
 </script>
 <style scoped>
-li {
+.charList {
   display: inline;
   font-family: Arial, Helvetica, sans-serif;
   font-variant: small-caps;
 }
-li::after {
+.charList::after {
   content: "-";
   padding: 0.9em;
 }
