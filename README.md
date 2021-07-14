@@ -1,24 +1,3 @@
-# ricknmorty
-
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Proyecto construido con VUE JS utilizando la API de Rick And Morty. Ofrece la lista completa de personajes, capítulos y ubicaciones del universo de la serie.
+La lista de ubicaciones, además, permite clickear sobre cada una y se abre un modal con los personajes que viven en esa ubicación en particular.
+La opción random-character trae un personaje al azar de la API y lo muestra en una card. El paginador que se usa para todo el proyecto está diseñado "a mano". Entiendo que hay opciones mejores ya programadas, pero para el proceso de aprendizaje de JavaScript fue una buena experiencia hacerlo así.
